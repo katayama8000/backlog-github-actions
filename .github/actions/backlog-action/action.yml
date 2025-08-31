@@ -8,7 +8,7 @@ inputs:
     description: 'Your Backlog API Key'
     required: true
   project_key:
-    description: 'The project key (e.g., EXAMPLE)'
+    description: 'The project key (e.g., 123456)'
     required: true
   issue_type_id:
     description: 'The issue type ID'
@@ -16,6 +16,10 @@ inputs:
   summary:
     description: 'The summary of the new issue'
     required: true
+  priority:
+    description: 'The priority of the new issue (High, Normal, Low)'
+    required: false
+    default: 'Normal'
 runs:
   using: 'docker'
   image: 'Dockerfile'
