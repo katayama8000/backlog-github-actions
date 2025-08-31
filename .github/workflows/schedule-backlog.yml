@@ -20,6 +20,6 @@ jobs:
         with:
           backlog_domain: 'tatsufumi.backlog.com'
           api_key: ${{ secrets.BACKLOG_API_KEY }}
-          project_key: FAMILY
+          project_key: 'FAMILY'
           issue_type_id: '3529949'
           summary: 'Daily task: Check system logs'
