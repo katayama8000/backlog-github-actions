@@ -1,4 +1,0 @@
-*.yml linguist-detectable=true
-*.yml linguist-language=yaml
-*.sh linguist-detectable=true
-*.sh linguist-language=bash
