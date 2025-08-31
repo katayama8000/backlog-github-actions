@@ -1,0 +1,25 @@
+name: Create Backlog Issue
+
+on:
+  # This event allows manual triggering of the workflow from the GitHub UI
+  workflow_dispatch:
+  # This event schedules the workflow to run at a specific time
+  schedule:
+    # Schedule to run every day at 9:00 AM JST
+    - cron: '0 0 * * *'
+
+jobs:
+  create-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      
+      - name: Create a new Backlog issue
+        uses: ./.github/actions/backlog-action
+        with:
+          backlog_domain: 'tatsufumi.backlog.com'
+          api_key: ${{ secrets.BACKLOG_API_KEY }}
+          project_key: FAMILY
+          issue_type_id: '3529949'
+          summary: 'Daily task: Check system logs'

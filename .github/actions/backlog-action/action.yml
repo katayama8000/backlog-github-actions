@@ -1,0 +1,21 @@
+name: 'Backlog API Action'
+description: 'A custom action to interact with Backlog API'
+inputs:
+  backlog_domain:
+    description: 'Your Backlog domain (e.g., example.backlog.com)'
+    required: true
+  api_key:
+    description: 'Your Backlog API Key'
+    required: true
+  project_key:
+    description: 'The project key (e.g., EXAMPLE)'
+    required: true
+  issue_type_id:
+    description: 'The issue type ID'
+    required: true
+  summary:
+    description: 'The summary of the new issue'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
