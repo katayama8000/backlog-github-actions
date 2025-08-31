@@ -6,7 +6,7 @@ set -e
 # Extract inputs
 BACKLOG_DOMAIN=$INPUT_BACKLOG_DOMAIN
 API_KEY=$INPUT_API_KEY
-PROJECT_KEY=$INPUT_PROJECT_KEY
+PROJECT_ID=$INPUT_PROJECT_ID
 ISSUE_TYPE_ID=$INPUT_ISSUE_TYPE_ID
 SUMMARY=$INPUT_SUMMARY
 PRIORITY=$INPUT_PRIORITY
@@ -34,7 +34,7 @@ API_URL="https://${BACKLOG_DOMAIN}/api/v2/issues?apiKey=${API_KEY}"
 # Use curl to send a POST request
 curl -s -X POST "${API_URL}" \
 -H "Content-Type: application/x-www-form-urlencoded" \
--d "projectId=${PROJECT_KEY}" \
+-d "projectId=${PROJECT_ID}" \
 -d "issueTypeId=${ISSUE_TYPE_ID}" \
 -d "priorityId=${PRIORITY_ID}" \
 -d "summary=${SUMMARY}"

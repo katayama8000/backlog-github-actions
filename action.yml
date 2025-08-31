@@ -7,8 +7,8 @@ inputs:
   api_key:
     description: 'Your Backlog API Key'
     required: true
-  project_key:
-    description: 'The project key (e.g., 123456)'
+  project_id:
+    description: 'The project ID (e.g., 123456)'
     required: true
   issue_type_id:
     description: 'The issue type ID'
