@@ -16,10 +16,46 @@ inputs:
   summary:
     description: 'The summary of the new issue'
     required: true
-  priority:
-    description: 'The priority of the new issue (High, Normal, Low)'
+  priority_id:
+    description: 'The priority ID of the new issue'
+    required: true
+  parent_issue_id:
+    description: 'Parent Issue ID'
     required: false
-    default: 'Normal'
+  description:
+    description: 'Description of the issue'
+    required: false
+  start_date:
+    description: 'Start Date (yyyy-MM-dd)'
+    required: false
+  due_date:
+    description: 'Due Date (yyyy-MM-dd)'
+    required: false
+  estimated_hours:
+    description: 'Estimated Hours'
+    required: false
+  actual_hours:
+    description: 'Actual Hours'
+    required: false
+  category_ids:
+    description: 'Category IDs (comma-separated for multiple values)'
+    required: false
+  version_ids:
+    description: 'Version IDs (comma-separated for multiple values)'
+    required: false
+  milestone_ids:
+    description: 'Milestone IDs (comma-separated for multiple values)'
+    required: false
+  assignee_id:
+    description: 'Assignee ID'
+    required: false
+  notified_user_ids:
+    description: 'Notified User IDs (comma-separated for multiple values)'
+    required: false
+  attachment_ids:
+    description: 'Attachment file IDs (comma-separated for multiple values)'
+    required: false
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
