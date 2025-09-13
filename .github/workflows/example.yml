@@ -18,4 +18,4 @@ jobs:
           project_id: '665456'
           issue_type_id: '3529949'
           summary: 'Sample Task'
-          priority: 'Normal'
+          priority_id: '3'
