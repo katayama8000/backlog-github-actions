@@ -45,37 +45,32 @@ CURL_DATA="${CURL_DATA} -d summary=${SUMMARY}"
 
 # Handle array parameters (comma-separated values)
 if [ -n "$CATEGORY_IDS" ]; then
-  IFS=',' read -ra CATEGORIES <<< "$CATEGORY_IDS"
-  for category in "${CATEGORIES[@]}"; do
-    CURL_DATA="${CURL_DATA} -d categoryId[]=${category}"
+  for id in $(echo "$CATEGORY_IDS" | sed 's/,/ /g'); do
+    CURL_DATA="${CURL_DATA} -d categoryId[]=${id}"
   done
 fi
 
 if [ -n "$VERSION_IDS" ]; then
-  IFS=',' read -ra VERSIONS <<< "$VERSION_IDS"
-  for version in "${VERSIONS[@]}"; do
-    CURL_DATA="${CURL_DATA} -d versionId[]=${version}"
+  for id in $(echo "$VERSION_IDS" | sed 's/,/ /g'); do
+    CURL_DATA="${CURL_DATA} -d versionId[]=${id}"
   done
 fi
 
 if [ -n "$MILESTONE_IDS" ]; then
-  IFS=',' read -ra MILESTONES <<< "$MILESTONE_IDS"
-  for milestone in "${MILESTONES[@]}"; do
-    CURL_DATA="${CURL_DATA} -d milestoneId[]=${milestone}"
+  for id in $(echo "$MILESTONE_IDS" | sed 's/,/ /g'); do
+    CURL_DATA="${CURL_DATA} -d milestoneId[]=${id}"
   done
 fi
 
 if [ -n "$NOTIFIED_USER_IDS" ]; then
-  IFS=',' read -ra NOTIFIED_USERS <<< "$NOTIFIED_USER_IDS"
-  for user in "${NOTIFIED_USERS[@]}"; do
-    CURL_DATA="${CURL_DATA} -d notifiedUserId[]=${user}"
+  for id in $(echo "$NOTIFIED_USER_IDS" | sed 's/,/ /g'); do
+    CURL_DATA="${CURL_DATA} -d notifiedUserId[]=${id}"
   done
 fi
 
 if [ -n "$ATTACHMENT_IDS" ]; then
-  IFS=',' read -ra ATTACHMENTS <<< "$ATTACHMENT_IDS"
-  for attachment in "${ATTACHMENTS[@]}"; do
-    CURL_DATA="${CURL_DATA} -d attachmentId[]=${attachment}"
+  for id in $(echo "$ATTACHMENT_IDS" | sed 's/,/ /g'); do
+    CURL_DATA="${CURL_DATA} -d attachmentId[]=${id}"
   done
 fi
 
