@@ -1,6 +1,8 @@
-# Backlog GitHub Action
+# Backlog Issue Creator
 
-This GitHub Action allows you to create an issue in your Backlog project.
+This GitHub Action creates a new issue in your Backlog project.
+
+---
 
 ## Inputs
 
@@ -13,5 +15,34 @@ This GitHub Action allows you to create an issue in your Backlog project.
 | `summary`         | The summary of the new issue                      | `true`   |          |
 | `priority`        | The priority of the new issue (High, Normal, Low) | `false`  | `Normal` |
 
+---
+
 ## Usage
-TODO
+
+Use the action in your workflow file (`.github/workflows/your-workflow.yml`).
+
+```yaml
+name: Create Backlog Issue
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      
+      - name: Create a new Backlog issue
+        uses: katayama8000/backlog-issue-creator@v1.0.0
+        with:
+          backlog_domain: 'YOUR_DOMAIN.backlog.com'
+          api_key: ${{ secrets.BACKLOG_API_KEY }}
+          project_id: 'YOUR_PROJECT_ID'
+          issue_type_id: 'YOUR_ISSUE_TYPE_ID'
+          summary: 'Sample Task'
+          priority: 'Normal'
+```
+
+> This action is actively being developed. Optional parameters such as `description` will be added in future versions. Stay tuned.
