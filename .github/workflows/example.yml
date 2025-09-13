@@ -19,3 +19,8 @@ jobs:
           issue_type_id: '3529949'
           summary: 'Sample Task'
           priority_id: '3'
+          description: 'This is a sample task created via GitHub Actions.'
+          start_date: '2024-01-01'
+          due_date: '2024-01-07'
+          estimated_hours: '5'
+          actual_hours: '0'
