@@ -29,48 +29,48 @@ API_URL="https://${BACKLOG_DOMAIN}/api/v2/issues?apiKey=${API_KEY}"
 
 # Build curl command with required parameters
 CURL_DATA=""
-CURL_DATA="${CURL_DATA} -d projectId=${PROJECT_ID}"
-CURL_DATA="${CURL_DATA} -d issueTypeId=${ISSUE_TYPE_ID}"
-CURL_DATA="${CURL_DATA} -d priorityId=${PRIORITY_ID}"
-CURL_DATA="${CURL_DATA} -d summary=${SUMMARY}"
+CURL_DATA="${CURL_DATA} -d projectId='${PROJECT_ID}'"
+CURL_DATA="${CURL_DATA} -d issueTypeId='${ISSUE_TYPE_ID}'"
+CURL_DATA="${CURL_DATA} -d priorityId='${PRIORITY_ID}'"
+CURL_DATA="${CURL_DATA} -d summary='${SUMMARY}'"
 
 # Add optional parameters if they are provided
-[ -n "$PARENT_ISSUE_ID" ] && CURL_DATA="${CURL_DATA} -d parentIssueId=${PARENT_ISSUE_ID}"
-[ -n "$DESCRIPTION" ] && CURL_DATA="${CURL_DATA} -d description=${DESCRIPTION}"
-[ -n "$START_DATE" ] && CURL_DATA="${CURL_DATA} -d startDate=${START_DATE}"
-[ -n "$DUE_DATE" ] && CURL_DATA="${CURL_DATA} -d dueDate=${DUE_DATE}"
-[ -n "$ESTIMATED_HOURS" ] && CURL_DATA="${CURL_DATA} -d estimatedHours=${ESTIMATED_HOURS}"
-[ -n "$ACTUAL_HOURS" ] && CURL_DATA="${CURL_DATA} -d actualHours=${ACTUAL_HOURS}"
-[ -n "$ASSIGNEE_ID" ] && CURL_DATA="${CURL_DATA} -d assigneeId=${ASSIGNEE_ID}"
+[ -n "$PARENT_ISSUE_ID" ] && CURL_DATA="${CURL_DATA} -d parentIssueId='${PARENT_ISSUE_ID}'"
+[ -n "$DESCRIPTION" ] && CURL_DATA="${CURL_DATA} -d description='${DESCRIPTION}'"
+[ -n "$START_DATE" ] && CURL_DATA="${CURL_DATA} -d startDate='${START_DATE}'"
+[ -n "$DUE_DATE" ] && CURL_DATA="${CURL_DATA} -d dueDate='${DUE_DATE}'"
+[ -n "$ESTIMATED_HOURS" ] && CURL_DATA="${CURL_DATA} -d estimatedHours='${ESTIMATED_HOURS}'"
+[ -n "$ACTUAL_HOURS" ] && CURL_DATA="${CURL_DATA} -d actualHours='${ACTUAL_HOURS}'"
+[ -n "$ASSIGNEE_ID" ] && CURL_DATA="${CURL_DATA} -d assigneeId='${ASSIGNEE_ID}'"
 
 # Handle array parameters (comma-separated values)
 if [ -n "$CATEGORY_IDS" ]; then
   for id in $(echo "$CATEGORY_IDS" | sed 's/,/ /g'); do
-    CURL_DATA="${CURL_DATA} -d categoryId[]=${id}"
+    CURL_DATA="${CURL_DATA} -d categoryId[]='${id}'"
   done
 fi
 
 if [ -n "$VERSION_IDS" ]; then
   for id in $(echo "$VERSION_IDS" | sed 's/,/ /g'); do
-    CURL_DATA="${CURL_DATA} -d versionId[]=${id}"
+    CURL_DATA="${CURL_DATA} -d versionId[]='${id}'"
   done
 fi
 
 if [ -n "$MILESTONE_IDS" ]; then
   for id in $(echo "$MILESTONE_IDS" | sed 's/,/ /g'); do
-    CURL_DATA="${CURL_DATA} -d milestoneId[]=${id}"
+    CURL_DATA="${CURL_DATA} -d milestoneId[]='${id}'"
   done
 fi
 
 if [ -n "$NOTIFIED_USER_IDS" ]; then
   for id in $(echo "$NOTIFIED_USER_IDS" | sed 's/,/ /g'); do
-    CURL_DATA="${CURL_DATA} -d notifiedUserId[]=${id}"
+    CURL_DATA="${CURL_DATA} -d notifiedUserId[]='${id}'"
   done
 fi
 
 if [ -n "$ATTACHMENT_IDS" ]; then
   for id in $(echo "$ATTACHMENT_IDS" | sed 's/,/ /g'); do
-    CURL_DATA="${CURL_DATA} -d attachmentId[]=${id}"
+    CURL_DATA="${CURL_DATA} -d attachmentId[]='${id}'"
   done
 fi
 
