@@ -1,5 +1,5 @@
-name: 'Backlog API Action'
-description: 'A custom action to interact with Backlog API'
+name: 'Backlog Issue Creator'
+description: 'Creates a new issue in Backlog using the Backlog API.'
 inputs:
   backlog_domain:
     description: 'Your Backlog domain (e.g., example.backlog.com)'
@@ -24,5 +24,5 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
 branding:
-  icon: 'command'
+  icon: 'edit'
   color: 'blue'
