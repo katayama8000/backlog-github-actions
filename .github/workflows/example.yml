@@ -11,11 +11,16 @@ jobs:
         uses: actions/checkout@v5
       
       - name: Create a new Backlog issue
-        uses: katayama8000/backlog-issue-creator@0.2.0
+        uses: katayama8000/backlog-issue-creator@0.3.0
         with:
           backlog_domain: 'tatsufumi.backlog.com'
           api_key: ${{ secrets.BACKLOG_API_KEY }}
           project_id: '665456'
           issue_type_id: '3529949'
           summary: 'Sample Task'
-          priority: 'Normal'
+          priority_id: '3'
+          description: 'This is a sample task created via GitHub Actions.'
+          start_date: '2024-01-01'
+          due_date: '2024-01-07'
+          estimated_hours: '5'
+          actual_hours: '0'
