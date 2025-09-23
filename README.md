@@ -47,7 +47,7 @@ jobs:
         uses: actions/checkout@v5
       
       - name: Create a new Backlog issue
-        uses: katayama8000/backlog-issue-creator@v1
+        uses: katayama8000/backlog-issue-creator@0.3.2
         with:
           backlog_domain: 'YOUR_DOMAIN.backlog.com'
           api_key: ${{ secrets.BACKLOG_API_KEY }}
